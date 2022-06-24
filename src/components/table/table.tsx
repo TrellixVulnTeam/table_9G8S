@@ -8,6 +8,7 @@ import {
 import {
   Pagination,
   Table as TableMui,
+  Theme,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
@@ -22,13 +23,20 @@ import EmptyTable from './empty-table';
 import TableBody from './table-body';
 import TableHead from './table-head';
 
-const useStyles = makeStyles({
-    paggination: {
-        marginTop: 10,
-        display: 'flex',
-        justifyContent: 'center',
-    },
-});
+const useStyles = makeStyles(
+    (theme: Theme) => ({
+        paggination: {
+            marginTop: 10,
+            display: 'flex',
+            justifyContent: 'center',
+
+            [theme.breakpoints.down('md')]: {
+                '& .MuiPaginationItem-root': {
+                    margin: 0,
+                }
+            },
+        },
+    }));
 
 
 function Table(): React.ReactElement {
@@ -61,7 +69,7 @@ function Table(): React.ReactElement {
                 className={classes.paggination}
                 count={pagination.total}
                 page={pagination.count}
-                boundaryCount={2}
+                boundaryCount={1}
                 onChange={(_, val) => dispatch(setPaginationCount(Number(val)))}
             />}
         </>

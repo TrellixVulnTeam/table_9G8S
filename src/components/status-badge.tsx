@@ -1,10 +1,11 @@
 import React from 'react';
 
+import { Theme } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 import { statusType } from '../store/types';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     status: {
         display: 'inline-block',
         textAlign: 'center',
@@ -13,6 +14,12 @@ const useStyles = makeStyles({
         padding: '4px 10px',
         borderRadius: '3px',
         minWidth: 110,
+
+        [theme.breakpoints.down('md')]: {
+            fontSize: '6px',
+            minWidth: '35px',
+            padding: '2px 5px',
+        },
     },
     new: {
         background: '#981a1a',
@@ -29,7 +36,7 @@ const useStyles = makeStyles({
     started: {
         background: '#243ece',
     }
-})
+}))
 
 
 function StatusBadge({ status }: { status: statusType }): React.ReactElement {

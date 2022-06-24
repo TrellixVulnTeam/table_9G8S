@@ -4,10 +4,11 @@ import {
   TableCell,
   TableHead as TableHeadMui,
   TableRow,
+  Theme,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme: Theme) => ({
     head: {
         backgroundColor: '#474955',
     },
@@ -24,9 +25,16 @@ const useStyles = makeStyles({
 
     column: {
         maxWidth: '250px',
+        '&.MuiTableCell-root': {
+            [theme.breakpoints.down('md')]: {
+                fontSize: '8px',
+                padding: '4px',
+                lineHeight: '12px'
+            },
+        },
     },
 
-});
+}));
 
 function TableHead(): React.ReactElement {
     const classes = useStyles();

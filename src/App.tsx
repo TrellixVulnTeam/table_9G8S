@@ -21,7 +21,7 @@ const ContainerWraper = styled(Box)({
   padding: '23px 78px',
 
   [theme.breakpoints.down('md')]: {
-    padding: '10px 30px',
+    padding: '4px 10px',
 
   },
 });

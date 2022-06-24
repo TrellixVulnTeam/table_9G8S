@@ -15,11 +15,14 @@ const useStyles = makeStyles((theme: Theme) => ({
         maxWidth: '250px',
         cursor: 'pointer',
 
-        [theme.breakpoints.down('md')]: {
-            maxWidth: '150px',
+        '&.MuiTableCell-root': {
+            [theme.breakpoints.down('md')]: {
+                maxWidth: '65px',
+                padding: '2px',
+                fontSize: '8px',
+            },
         },
     },
-
     first_text: {
         whiteSpace: "nowrap",
         overflow: "hidden",
